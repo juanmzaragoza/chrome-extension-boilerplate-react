@@ -1,11 +1,11 @@
 {
-  "name": "chrome-extension-boilerplate-react",
-  "version": "4.0.1",
-  "description": "A chrome extension boilerplate built with React 17 and Webpack 5",
+  "name": "ivee-chrome-extension",
+  "version": "0.0.1",
+  "description": "The IVEE chrome extension project",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lxieyang/chrome-extension-boilerplate-react.git"
+    "url": "https://github.com/juanmzaragoza/chrome-extension-boilerplate-react.git"
   },
   "scripts": {
     "build": "node utils/build.js",
