@@ -99,6 +99,12 @@ var options = {
         ],
         exclude: /node_modules/,
       },
+      {
+        test: /\.m?js/,
+        resolve: {
+          fullySpecified: false
+        }
+      }
     ],
   },
   resolve: {
