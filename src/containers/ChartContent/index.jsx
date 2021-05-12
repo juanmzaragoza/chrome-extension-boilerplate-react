@@ -8,7 +8,7 @@ const ChartContent = (props) => {
   const [open, setOpen] = useState(false);
 
   const Dashboard = () => (
-    <Popper open={open} anchorEl={anchorEl} placement={"right-start"} transition style={{width: "50%", height: "100%", zIndex: "50"}}>
+    <Popper open={open} anchorEl={anchorEl} placement={"right-start"} transition style={{width: "50%", zIndex: "50"}}>
       {({ TransitionProps }) => (
         <Fade {...TransitionProps} timeout={350}>
           <Paper>
