@@ -3,6 +3,7 @@ import { printLine } from './modules/print';
 import {renderComponent} from './modules/dom';
 import {saveGlobally} from './modules/storage';
 import FullDashboard from '../../containers/FullDashboard';
+import WeightDashboard from "../../containers/WeightDashboard";
 
 console.log('IVEE Content script works!');
 console.log('Must reload extension for modifications to take effect.');
@@ -28,6 +29,7 @@ window.addEventListener("message", function(event) {
 
 /** render components in the web DOM */
 const components = {
-  'mdl-layout-title': <FullDashboard />
+  'mdl-layout-title': <FullDashboard />,
+  'mdl-tabs__tab-bar': <WeightDashboard />
 }
 Object.keys(components).map(key => renderComponent({className: key, component: components[key]}));
