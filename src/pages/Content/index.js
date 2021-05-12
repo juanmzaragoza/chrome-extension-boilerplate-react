@@ -1,7 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { printLine } from './modules/print';
-import {insertChild} from './modules/dom';
+import {renderComponent} from './modules/dom';
 import {saveGlobally} from './modules/storage';
 import FullDashboard from '../../containers/FullDashboard';
 
@@ -27,8 +26,8 @@ window.addEventListener("message", function(event) {
   }
 });
 
-// put the button in the DOM
-const element = document.getElementsByClassName('mdl-tabs__tab is-active')[0];
-const app = document.createElement('span');
-insertChild(element, app);
-ReactDOM.render(<FullDashboard />, app);
+/** render components in the web DOM */
+const components = {
+  'mdl-layout-title': <FullDashboard />
+}
+Object.keys(components).map(key => renderComponent({className: key, component: components[key]}));

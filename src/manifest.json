@@ -1,6 +1,8 @@
 {
   "manifest_version": 3,
   "name": "IVEE Chrome Extension",
+  "description" : "IVEE: Veterinary pet health record technology",
+  "version": "0.0.1",
   "options_page": "options.html",
   "background": { "service_worker": "background.bundle.js" },
   "action": {
