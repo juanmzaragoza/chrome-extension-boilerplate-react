@@ -6,6 +6,7 @@ import MenuList from '@material-ui/core/MenuList';
 import MenuItem from '@material-ui/core/MenuItem';
 import Paper from '@material-ui/core/Paper';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
+import CallMadeIcon from '@material-ui/icons/CallMade';
 import Typography from '@material-ui/core/Typography';
 import SendIcon from '@material-ui/icons/Send';
 import PriorityHighIcon from '@material-ui/icons/PriorityHigh';
@@ -28,6 +29,10 @@ const useStyles = makeStyles((theme) => createStyles({
   buttonLogin: {
     width: "90%",
     backgroundColor: "green",
+    marginBottom: "10px"
+  },
+  buttonSite: {
+    width: "90%",
     marginBottom: "10px"
   }
 }));
@@ -77,6 +82,7 @@ const Menu = (props) => {
           :
           <>
             <Button className={classes.buttonLogin} variant={"contained"} disabled >{user.email}</Button>
+            <Button className={classes.buttonSite} variant={"contained"} color={"secondary"} onClick={() => {props.onGoToSite()}}>Go to Site <CallMadeIcon /></Button>
             <Button className={classes.buttonLogin} variant={"contained"} color={"primary"} onClick={() => {props.onLogout()}}>Logout</Button>
           </>
         }

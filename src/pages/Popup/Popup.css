@@ -1,11 +1,6 @@
 .App {
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
+  position: relative;
   text-align: center;
-  height: 400px;
   padding: 10px;
   background-color: #daf7e0;;
 }
