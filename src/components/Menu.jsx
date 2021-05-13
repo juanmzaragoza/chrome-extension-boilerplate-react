@@ -6,10 +6,14 @@ import MenuList from '@material-ui/core/MenuList';
 import MenuItem from '@material-ui/core/MenuItem';
 import Paper from '@material-ui/core/Paper';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
-import CallMadeIcon from '@material-ui/icons/CallMade';
+import NotesIcon from '@material-ui/icons/Notes';
+import PetsIcon from '@material-ui/icons/Pets';
 import Typography from '@material-ui/core/Typography';
-import SendIcon from '@material-ui/icons/Send';
+import PersonIcon from '@material-ui/icons/Person';
+import ScheduleIcon from '@material-ui/icons/Schedule';
 import PriorityHighIcon from '@material-ui/icons/PriorityHigh';
+import OpenInNewIcon from '@material-ui/icons/OpenInNew';
+import StorefrontIcon from '@material-ui/icons/Storefront';
 import {Button} from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => createStyles({
@@ -41,23 +45,23 @@ const Menu = (props) => {
   const classes = useStyles(props);
   const items = [
     {
-      icon: <SendIcon fontSize="small" />,
+      icon: <PetsIcon fontSize="small" />,
       title: "Patient"
     },
     {
-      icon: <PriorityHighIcon fontSize="small" />,
+      icon: <PersonIcon fontSize="small" />,
       title: "Admin"
     },
     {
-      icon: <PriorityHighIcon fontSize="small" />,
+      icon: <ScheduleIcon fontSize="small" />,
       title: "Schedule"
     },
     {
-      icon: <PriorityHighIcon fontSize="small" />,
+      icon: <StorefrontIcon fontSize="small" />,
       title: "Marketing"
     },
     {
-      icon: <PriorityHighIcon fontSize="small" />,
+      icon: <NotesIcon fontSize="small" />,
       title: "Diagnosis Overlay"
     },
   ];
@@ -65,7 +69,7 @@ const Menu = (props) => {
   const { user } = props;
   return (
     <div className={classes.root}>
-      <div className={classes.title}>Menu</div>
+      <div className={classes.title}><Typography variant='h4'>Menu</Typography></div>
       <Paper className={classes.content}>
         <MenuList>
           {items.map(item =>(
@@ -73,17 +77,23 @@ const Menu = (props) => {
               <ListItemIcon>
                 {item.icon}
               </ListItemIcon>
-              <Typography variant="inherit">{item.title}</Typography>
+              <Typography variant="button">{item.title}</Typography>
             </MenuItem>
           ))}
         </MenuList>
         {!user?
-          <Button className={classes.buttonLogin} variant={"contained"} color={"secondary"} onClick={() => {props.onLogin()}}>Login</Button>
+          <Button className={classes.buttonLogin} variant={"contained"} color={"secondary"} onClick={() => {props.onLogin()}}>
+            <Typography variant='button'>Login</Typography>
+          </Button>
           :
           <>
             <Button className={classes.buttonLogin} variant={"contained"} disabled >{user.email}</Button>
-            <Button className={classes.buttonSite} variant={"contained"} color={"secondary"} onClick={() => {props.onGoToSite()}}>Go to Site <CallMadeIcon /></Button>
-            <Button className={classes.buttonLogin} variant={"contained"} color={"primary"} onClick={() => {props.onLogout()}}>Logout</Button>
+            <Button className={classes.buttonSite} variant={"contained"} color={"secondary"} onClick={() => {props.onGoToSite()}}>
+              <Typography variant='button'>Go to Site <OpenInNewIcon fontSize="small" /></Typography>
+            </Button>
+            <Button className={classes.buttonLogin} variant={"contained"} color={"primary"} onClick={() => {props.onLogout()}}>
+              <Typography variant='button'>Logout</Typography>
+            </Button>
           </>
         }
       </Paper>
