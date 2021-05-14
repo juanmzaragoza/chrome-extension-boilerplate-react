@@ -29,7 +29,21 @@ window.addEventListener("message", function(event) {
 
 /** render components in the web DOM */
 const components = {
-  'mdl-layout-title': <FullDashboard />,
-  'mdl-tabs__tab-bar': <WeightDashboard />
+  'title': {
+    component: <FullDashboard />,
+  },
+  'patientWeightChart': {
+    component: <WeightDashboard buttonStyle={{position: 'absolute'}}/>,
+    extraAction: () => {
+      const element = document.getElementsByClassName('patientWeightChart')[0];
+      element.style = 'position: relative;';
+    },
+    transformContainer: (app) => {
+      app.style = "position: absolute; top: 0; right: 50px;";
+    },
+    getElement: (element) => {
+      return element.childNodes[1];
+    }
+  }
 }
-Object.keys(components).map(key => renderComponent({className: key, component: components[key]}));
+Object.keys(components).map(key => renderComponent({className: key, ...components[key]}));

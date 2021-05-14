@@ -5,7 +5,7 @@ import PetsIcon from '@material-ui/icons/Pets';
 
 const DomButton = (props) => {
   return (
-    <IconButton color="secondary" aria-label="upload picture" component="span" onClick={props.onClick}>
+    <IconButton style={props.style} color="secondary" aria-label="upload picture" component="span" onClick={props.onClick}>
       <PetsIcon />
     </IconButton>
   );

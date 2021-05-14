@@ -17,7 +17,7 @@ const WeightDashboard = (props) => {
     "ds0.source_memberspace_email":"info@evetpractice.com",
   };
 
-  return <ChartContent>
+  return <ChartContent {...props}>
     <iframe key={"weight-dashboard-iframe"}
             className="responsive-iframe"
             width='1000px'

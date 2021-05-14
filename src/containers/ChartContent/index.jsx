@@ -30,7 +30,7 @@ const ChartContent = (props) => {
 
   return <>
     <Dashboard />
-    <DomButton onClick={handleClick}/>
+    <DomButton style={props.buttonStyle} onClick={handleClick}/>
   </>;
 }
 
