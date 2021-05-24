@@ -11,7 +11,6 @@ import PetsIcon from '@material-ui/icons/Pets';
 import Typography from '@material-ui/core/Typography';
 import PersonIcon from '@material-ui/icons/Person';
 import ScheduleIcon from '@material-ui/icons/Schedule';
-import PriorityHighIcon from '@material-ui/icons/PriorityHigh';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import StorefrontIcon from '@material-ui/icons/Storefront';
 import {Button} from "@material-ui/core";
@@ -66,6 +65,10 @@ const Menu = (props) => {
     },
   ];
 
+  const isLoggedIn = () => {
+    return !!user;
+  }
+
   const { user } = props;
   return (
     <div className={classes.root}>
@@ -73,7 +76,7 @@ const Menu = (props) => {
       <Paper className={classes.content}>
         <MenuList>
           {items.map(item =>(
-            <MenuItem>
+            <MenuItem disabled={!isLoggedIn()}>
               <ListItemIcon>
                 {item.icon}
               </ListItemIcon>
@@ -81,7 +84,7 @@ const Menu = (props) => {
             </MenuItem>
           ))}
         </MenuList>
-        {!user?
+        {!isLoggedIn()?
           <Button className={classes.buttonLogin} variant={"contained"} color={"secondary"} onClick={() => {props.onLogin()}}>
             <Typography variant='button'>Login</Typography>
           </Button>
