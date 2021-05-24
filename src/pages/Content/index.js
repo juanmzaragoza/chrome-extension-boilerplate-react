@@ -5,6 +5,9 @@ import {saveGlobally} from './modules/storage';
 import FullDashboard from '../../containers/FullDashboard';
 import WeightDashboard from "../../containers/WeightDashboard";
 
+const FULL_DASHBOARD_BUTTON_INDEX_CHILD = 1;
+const PATIENT_DASHBOARD_BUTTON_INDEX_CHILD = 2;
+
 console.log('IVEE Content script works!');
 console.log('Must reload extension for modifications to take effect.');
 
@@ -42,7 +45,20 @@ const components = {
       app.style = "position: absolute; top: 0; right: 50px;";
     },
     getElement: (element) => {
-      return element.childNodes[1];
+      return element.childNodes[FULL_DASHBOARD_BUTTON_INDEX_CHILD];
+    }
+  },
+  'mr-setion-p-bottom-override': {
+    component: <WeightDashboard />,
+    extraAction: () => {
+      // get patient id
+      const element = document.getElementsByClassName('mr-setion-p-bottom-override')[0];
+      const patientContent = element.childNodes[PATIENT_DASHBOARD_BUTTON_INDEX_CHILD];
+      console.log(patientContent.innerHTML.split(":")[1].trim());
+    },
+    getElement: (element) => {
+      // get the third element of the .mr-setion-p-bottom-override element
+      return element.childNodes[PATIENT_DASHBOARD_BUTTON_INDEX_CHILD];
     }
   }
 }
