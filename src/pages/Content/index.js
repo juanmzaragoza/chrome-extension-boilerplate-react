@@ -1,4 +1,5 @@
 import React from 'react';
+import {find} from 'lodash';
 import { printLine } from './modules/print';
 import {renderComponent} from './modules/dom';
 import {saveGlobally} from './modules/storage';
@@ -37,8 +38,23 @@ const mustInsertCodeDom = () => {
   return result.length > 0;
 }
 
+const getPatientId =  () => {
+  // get table
+  const table = document.getElementsByClassName('patientHighlightsDetails')[0];
+  // find <tr> which includes Patient Id in the position 1
+  const tr = find(table.childNodes[1].childNodes, (item) => {
+    const contains = item.childNodes[1] && item.childNodes[1].innerHTML.includes('Patient Id');
+    return contains;
+  });
+  // return the position 3
+  return tr && tr.childNodes[3].innerHTML;
+
+}
+
 /** render components in the web DOM */
 if(mustInsertCodeDom()){
+  const patientId = getPatientId();
+  console.log("PATIENT ID ",patientId);
   const components = {
     'title': {
       component: <FullDashboard />,
