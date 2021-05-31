@@ -35,7 +35,6 @@ const ChartContent = (props) => {
   };
 
   const getButton = () => {
-    console.log(props, props.buttonType)
     return buttons[props.buttonType]? buttons[props.buttonType]:buttons['iconButton'];
   }
 

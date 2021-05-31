@@ -112,11 +112,33 @@ if(mustInsertCodeDom()){
         return element.childNodes[FULL_DASHBOARD_BUTTON_INDEX_CHILD];
       }
     },
-    'divQuickLinks': {
+    "a[data-gtmaction='Reason for Visit']": {
+      component: <WeightDashboard buttonStyle={{position: 'absolute', top: '-25px', right: '-20px'}}/>,
+      extraAction: () => {
+        const element = document.querySelector("a[data-gtmaction='Reason for Visit']");
+        element.parentElement.style = 'position: relative;';
+      },
+      getFunction: 'querySelector',
+      getElement: (element) => {
+        return element.parentElement;
+      }
+    },
+    "a[data-gtmaction='History Form']": {
+      component: <WeightDashboard buttonStyle={{position: 'absolute', top: '-25px', right: '-20px'}}/>,
+      extraAction: () => {
+        const element = document.querySelector("a[data-gtmaction='History Form']");
+        element.parentElement.style = 'position: relative;';
+      },
+      getFunction: 'querySelector',
+      getElement: (element) => {
+        return element.parentElement;
+      }
+    },
+    '#divQuickLinks': {
       component: <div>
         <LabResultsDashboard />
       </div>,
-      getFunction: 'getElementById',
+      getFunction: 'querySelector',
       transformContainer: (app) => {
         app.style = "padding: 10px;";
       },
