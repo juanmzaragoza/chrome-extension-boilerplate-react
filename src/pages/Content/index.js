@@ -5,6 +5,7 @@ import {renderComponent} from './modules/dom';
 import {saveGlobally} from './modules/storage';
 import FullDashboard from '../../containers/FullDashboard';
 import WeightDashboard from "../../containers/WeightDashboard";
+import LabResultsDashboard from "../../containers/LabResultsDashboard";
 
 const FULL_DASHBOARD_BUTTON_INDEX_CHILD = 1;
 const PATIENT_DASHBOARD_BUTTON_INDEX_CHILD = 2;
@@ -111,6 +112,15 @@ if(mustInsertCodeDom()){
         return element.childNodes[FULL_DASHBOARD_BUTTON_INDEX_CHILD];
       }
     },
+    'divQuickLinks': {
+      component: <div>
+        <LabResultsDashboard />
+      </div>,
+      getFunction: 'getElementById',
+      transformContainer: (app) => {
+        app.style = "padding: 10px;";
+      },
+    },
   }
-  Object.keys(components).map(key => renderComponent({className: key, ...components[key]}));
+  Object.keys(components).map(key => renderComponent({identifier: key, ...components[key]}));
 }

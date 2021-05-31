@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {Fade, Grid, Paper, Popper} from "@material-ui/core";
 
+import DomIconButton from "../../components/DomIconButton";
 import DomButton from "../../components/DomButton";
 
 const ChartContent = (props) => {
@@ -28,9 +29,19 @@ const ChartContent = (props) => {
     setOpen(!open);
   };
 
+  const buttons = {
+    'iconButton': <DomIconButton style={props.buttonStyle} onClick={handleClick}/>,
+    'button': <DomButton style={props.buttonStyle} onClick={handleClick}/>,
+  };
+
+  const getButton = () => {
+    console.log(props, props.buttonType)
+    return buttons[props.buttonType]? buttons[props.buttonType]:buttons['iconButton'];
+  }
+
   return <>
     <Dashboard />
-    <DomButton style={props.buttonStyle} onClick={handleClick}/>
+    {getButton()}
   </>;
 }
 
