@@ -6,6 +6,7 @@ import {saveGlobally} from './modules/storage';
 import FullDashboard from '../../containers/FullDashboard';
 import WeightDashboard from "../../containers/WeightDashboard";
 import LabResultsDashboard from "../../containers/LabResultsDashboard";
+import useMemberSpace from "../../hooks/memberSpace";
 
 const FULL_DASHBOARD_BUTTON_INDEX_CHILD = 1;
 const PATIENT_DASHBOARD_BUTTON_INDEX_CHILD = 2;
@@ -58,10 +59,10 @@ if(mustInsertCodeDom()){
   console.log("PATIENT ID ",patientId);
   const components = {
     'title': {
-      component: <FullDashboard />,
+      component: <FullDashboard patientId={patientId} />,
     },
     'patientWeightChart': {
-      component: <WeightDashboard buttonStyle={{position: 'absolute'}}/>,
+      component: <WeightDashboard patientId={patientId} buttonStyle={{position: 'absolute'}}/>,
       extraAction: () => {
         const element = document.getElementsByClassName('patientWeightChart')[0];
         element.style = 'position: relative;';

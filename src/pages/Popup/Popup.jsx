@@ -1,22 +1,18 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import './Popup.css';
 import Menu from "../../components/Menu";
-import {getGlobally, removeGlobally} from "../Content/modules/storage";
 import {openTab} from "../Content/modules/chrome-utils";
+import useMemberSpace from "../../hooks/memberSpace";
 
 const Popup = () => {
-  const [member, setMember] = useState(undefined);
-
-  useEffect(() => {
-    getGlobally('member', setMember);
-  },[]);
+  const [member, logout] = useMemberSpace();
 
   const handleLogin = () => {
     openTab("https://pupeeze2.memberspace.com/member/sign_in");
   }
 
   const handleLogout = () => {
-    removeGlobally('member',(items) => setMember(undefined));
+    logout();
   }
 
   const handleGoToSite = () => {
