@@ -11,6 +11,7 @@ import VitalsDashboard from "../../containers/VitalsDashboard";
 import ApptReasonsDashboard from "../../containers/ApptReasonsDashboard";
 import RemindersDashboard from "../../containers/RemindersDashboard";
 import MedicinesDashboard from "../../containers/MedicinesDashboard";
+import SoapNotesDashboard from "../../containers/SoapNotesDashboard";
 
 const FULL_DASHBOARD_BUTTON_INDEX_CHILD = 1;
 const PATIENT_DASHBOARD_BUTTON_INDEX_CHILD = 2;
@@ -129,7 +130,7 @@ if(mustInsertCodeDom()){
       }
     },
     "a[data-gtmaction='History Form']": {
-      component: <WeightDashboard buttonStyle={{position: 'absolute', top: '-25px', right: '-20px'}}/>,
+      component: <SoapNotesDashboard patientId={patientId} buttonStyle={{position: 'absolute', top: '-25px', right: '-20px'}}/>,
       extraAction: () => {
         const element = document.querySelector("a[data-gtmaction='History Form']");
         element.parentElement.style = 'position: relative;';
