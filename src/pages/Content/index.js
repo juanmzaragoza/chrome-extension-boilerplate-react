@@ -7,6 +7,7 @@ import FullDashboard from '../../containers/FullDashboard';
 import WeightDashboard from "../../containers/WeightDashboard";
 import LabResultsDashboard from "../../containers/LabResultsDashboard";
 import useMemberSpace from "../../hooks/memberSpace";
+import VitalsDashboard from "../../containers/VitalsDashboard";
 
 const FULL_DASHBOARD_BUTTON_INDEX_CHILD = 1;
 const PATIENT_DASHBOARD_BUTTON_INDEX_CHILD = 2;
@@ -101,7 +102,7 @@ if(mustInsertCodeDom()){
       }
     },
     'patientMonitorItems': {
-      component: <WeightDashboard buttonStyle={{position: 'absolute'}}/>,
+      component: <VitalsDashboard patientId={patientId} buttonStyle={{position: 'absolute'}}/>,
       extraAction: () => {
         const element = document.getElementsByClassName('patientMonitorItems')[0];
         element.style = 'position: relative;';
