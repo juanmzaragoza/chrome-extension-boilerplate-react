@@ -8,6 +8,7 @@ import WeightDashboard from "../../containers/WeightDashboard";
 import LabResultsDashboard from "../../containers/LabResultsDashboard";
 import useMemberSpace from "../../hooks/memberSpace";
 import VitalsDashboard from "../../containers/VitalsDashboard";
+import ApptReasonsDashboard from "../../containers/ApptReasonsDashboard";
 
 const FULL_DASHBOARD_BUTTON_INDEX_CHILD = 1;
 const PATIENT_DASHBOARD_BUTTON_INDEX_CHILD = 2;
@@ -115,7 +116,7 @@ if(mustInsertCodeDom()){
       }
     },
     "a[data-gtmaction='Reason for Visit']": {
-      component: <WeightDashboard buttonStyle={{position: 'absolute', top: '-25px', right: '-20px'}}/>,
+      component: <ApptReasonsDashboard patientId={patientId} buttonStyle={{position: 'absolute', top: '-25px', right: '-20px'}}/>,
       extraAction: () => {
         const element = document.querySelector("a[data-gtmaction='Reason for Visit']");
         element.parentElement.style = 'position: relative;';

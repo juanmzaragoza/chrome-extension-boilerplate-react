@@ -2,7 +2,7 @@ import React from "react";
 import ChartContent from "../ChartContent";
 import useParams from "../../hooks/params";
 
-const VitalsDashboard = (props) => {
+const ApptReasonsDashboard = (props) => {
   const [params] = useParams({...props,
     emailParams: [
       'ds0.source_memberspace_email'
@@ -12,14 +12,14 @@ const VitalsDashboard = (props) => {
     ]});
 
   return <ChartContent {...props}>
-    <iframe key={"vitals-dashboard-iframe"}
+    <iframe key={"appt-reasons-dashboard-iframe"}
             className="responsive-iframe"
             width='950px'
-            height='350'
-            src={`https://datastudio.google.com/embed/reporting/48137498-3fc1-46e9-afbc-c7f4c649ba6d/page/z29LC${params}`}
+            height='280'
+            src={`https://datastudio.google.com/embed/reporting/954950e7-32b8-4d8c-8b6c-0c68b974a013/page/a89LC${params}`}
             frameBorder="0"
             allowFullScreen></iframe>
   </ChartContent>;
 }
 
-export default VitalsDashboard;
+export default ApptReasonsDashboard;

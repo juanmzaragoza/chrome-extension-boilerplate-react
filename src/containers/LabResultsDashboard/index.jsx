@@ -18,7 +18,7 @@ const LabResultsDashboard = (props) => {
   };
 
   return <ChartContent {...props} buttonType={"button"}>
-    <iframe key={"weight-dashboard-iframe"}
+    <iframe key={"labresults-dashboard-iframe"}
             className="responsive-iframe"
             width='950px'
             height='280'
