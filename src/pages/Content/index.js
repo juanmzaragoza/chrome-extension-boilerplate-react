@@ -10,6 +10,7 @@ import useMemberSpace from "../../hooks/memberSpace";
 import VitalsDashboard from "../../containers/VitalsDashboard";
 import ApptReasonsDashboard from "../../containers/ApptReasonsDashboard";
 import RemindersDashboard from "../../containers/RemindersDashboard";
+import MedicinesDashboard from "../../containers/MedicinesDashboard";
 
 const FULL_DASHBOARD_BUTTON_INDEX_CHILD = 1;
 const PATIENT_DASHBOARD_BUTTON_INDEX_CHILD = 2;
@@ -91,7 +92,7 @@ if(mustInsertCodeDom()){
       }
     },
     'patientCoreVaccines': {
-      component: <WeightDashboard buttonStyle={{position: 'absolute'}}/>,
+      component: <MedicinesDashboard patientId={patientId} buttonStyle={{position: 'absolute'}}/>,
       extraAction: () => {
         const element = document.getElementsByClassName('patientCoreVaccines')[0];
         element.style = 'position: relative;';
