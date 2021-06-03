@@ -155,7 +155,7 @@ if(mustInsertCodeDom()){
     },
     '#divQuickLinks': {
       component: <div>
-        <LabResultsDashboard patntId={patientId} />
+        <LabResultsDashboard patntId={patientId} buttonStyle={{ marginRight: '10px'}}/>
         <SystemNotesDashboard patientId={patientId} />
       </div>,
       getFunction: 'querySelector',
