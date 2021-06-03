@@ -31,7 +31,7 @@ const ChartContent = (props) => {
 
   const buttons = {
     'iconButton': <DomIconButton style={props.buttonStyle} onClick={handleClick}/>,
-    'button': <DomButton style={props.buttonStyle} onClick={handleClick}/>,
+    'button': <DomButton style={props.buttonStyle} buttonText={props.buttonText} onClick={handleClick}/>,
   };
 
   const getButton = () => {

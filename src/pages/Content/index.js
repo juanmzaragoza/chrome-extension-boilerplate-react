@@ -12,6 +12,7 @@ import ApptReasonsDashboard from "../../containers/ApptReasonsDashboard";
 import RemindersDashboard from "../../containers/RemindersDashboard";
 import MedicinesDashboard from "../../containers/MedicinesDashboard";
 import SoapNotesDashboard from "../../containers/SoapNotesDashboard";
+import SystemNotesDashboard from "../../containers/SystemNotesDashboard";
 
 const FULL_DASHBOARD_BUTTON_INDEX_CHILD = 1;
 const PATIENT_DASHBOARD_BUTTON_INDEX_CHILD = 2;
@@ -143,6 +144,7 @@ if(mustInsertCodeDom()){
     '#divQuickLinks': {
       component: <div>
         <LabResultsDashboard />
+        <SystemNotesDashboard patientId={patientId} />
       </div>,
       getFunction: 'querySelector',
       transformContainer: (app) => {
