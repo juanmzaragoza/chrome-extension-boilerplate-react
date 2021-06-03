@@ -13,6 +13,7 @@ import RemindersDashboard from "../../containers/RemindersDashboard";
 import MedicinesDashboard from "../../containers/MedicinesDashboard";
 import SoapNotesDashboard from "../../containers/SoapNotesDashboard";
 import SystemNotesDashboard from "../../containers/SystemNotesDashboard";
+import DiagnosesDashboard from "../../containers/DiagnosesDashboard";
 
 const FULL_DASHBOARD_BUTTON_INDEX_CHILD = 1;
 const PATIENT_DASHBOARD_BUTTON_INDEX_CHILD = 2;
@@ -141,9 +142,20 @@ if(mustInsertCodeDom()){
         return element.parentElement;
       }
     },
+    "a[data-gtmaction='Diagnoses']": {
+      component: <DiagnosesDashboard patientId={patientId} buttonStyle={{position: 'absolute', top: '-25px', right: '-20px'}}/>,
+      extraAction: () => {
+        const element = document.querySelector("a[data-gtmaction='Diagnoses']");
+        element.parentElement.style = 'position: relative;';
+      },
+      getFunction: 'querySelector',
+      getElement: (element) => {
+        return element.parentElement;
+      }
+    },
     '#divQuickLinks': {
       component: <div>
-        <LabResultsDashboard />
+        <LabResultsDashboard patntId={patientId} />
         <SystemNotesDashboard patientId={patientId} />
       </div>,
       getFunction: 'querySelector',
