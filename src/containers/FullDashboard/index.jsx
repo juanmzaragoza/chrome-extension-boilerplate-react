@@ -24,7 +24,7 @@ const FullDashboard = (props) => {
             className="responsive-iframe"
             width={'1000px'}
             height={'700px'}
-            src={`https://datastudio.google.com/embed/reporting/07359004-ca0d-4843-aa92-7c27f6349276/page/1BCEB${params}`}
+            src={`https://datastudio.google.com/embed/reporting/2a857e71-18c0-4d3c-8cef-c0d29bb03da2/page/1BCEB${params}`}
             frameBorder="0"
             allowFullScreen></iframe>
   </ChartContent>;
