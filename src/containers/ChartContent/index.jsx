@@ -3,10 +3,12 @@ import {Fade, Grid, Paper, Popper} from "@material-ui/core";
 
 import DomIconButton from "../../components/DomIconButton";
 import DomButton from "../../components/DomButton";
+import useMemberSpace from "../../hooks/memberSpace";
 
 const ChartContent = (props) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [open, setOpen] = useState(false);
+  const [member] = useMemberSpace();
 
   const Dashboard = () => (
     <Popper open={open} anchorEl={anchorEl} placement={"right-start"} transition style={{width: "50%", zIndex: "50"}}>
@@ -39,8 +41,8 @@ const ChartContent = (props) => {
   }
 
   return <>
-    <Dashboard />
-    {getButton()}
+    {member && <Dashboard />}
+    {member && getButton()}
   </>;
 }
 
