@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Fade, Grid, Paper, Popper} from "@material-ui/core";
+import {Fade, Grid, Paper, Popper, ClickAwayListener} from "@material-ui/core";
 
 import DomIconButton from "../../components/DomIconButton";
 import DomButton from "../../components/DomButton";
@@ -13,15 +13,17 @@ const ChartContent = (props) => {
   const Dashboard = () => (
     <Popper open={open} anchorEl={anchorEl} placement={"right-start"} transition style={{width: "50%", zIndex: "50"}}>
       {({ TransitionProps }) => (
-        <Fade {...TransitionProps} timeout={350}>
-          <Paper>
-            <Grid container className={"classes.root"} spacing={2}>
-              <Grid item xs={12}>
-                {props.children}
+        <ClickAwayListener onClickAway={() => setOpen(false)}>
+          <Fade {...TransitionProps} timeout={350}>
+            <Paper>
+              <Grid container className={"classes.root"} spacing={2}>
+                <Grid item xs={12}>
+                  {props.children}
+                </Grid>
               </Grid>
-            </Grid>
-          </Paper>
-        </Fade>
+            </Paper>
+          </Fade>
+        </ClickAwayListener>
       )}
     </Popper>
   )
