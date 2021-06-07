@@ -3,12 +3,13 @@ import './Popup.css';
 import Menu from "../../components/Menu";
 import {openTab} from "../Content/modules/chrome-utils";
 import useMemberSpace from "../../hooks/memberSpace";
+import {EVETPRACTICE_LOGIN_PATH_ROOT, IVEE_LOGIN_PATH_ROOT} from "../../constants/settings";
 
 const Popup = () => {
   const [member, logout] = useMemberSpace();
 
   const handleLogin = () => {
-    openTab("https://pupeeze2.memberspace.com/member/sign_in");
+    openTab(IVEE_LOGIN_PATH_ROOT);
   }
 
   const handleLogout = () => {
@@ -16,7 +17,7 @@ const Popup = () => {
   }
 
   const handleGoToSite = () => {
-    openTab("https://login.evetpractice.com/Practice/Account/LogOn");
+    openTab(EVETPRACTICE_LOGIN_PATH_ROOT);
   }
 
   return (
