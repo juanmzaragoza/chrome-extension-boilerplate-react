@@ -75,8 +75,8 @@ const Menu = (props) => {
       <div className={classes.title}><Typography variant='h4'>Menu</Typography></div>
       <Paper className={classes.content}>
         <MenuList>
-          {items.map(item =>(
-            <MenuItem disabled={!isLoggedIn()}>
+          {items.map((item, key) =>(
+            <MenuItem key={key} disabled={!isLoggedIn()}>
               <ListItemIcon>
                 {item.icon}
               </ListItemIcon>

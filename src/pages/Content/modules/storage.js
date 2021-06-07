@@ -5,7 +5,7 @@ export const saveGlobally = (key, value) => {
   });
 }
 
-export const getGlobally = (key, callback) => {
+export const getGlobally = (key, callback = () => {}) => {
   console.log("[storage] get globally");
   return chrome.storage.sync.get([key], function(items){
     //  items = [ { "yourBody": "myBody" } ]

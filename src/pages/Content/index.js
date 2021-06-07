@@ -6,7 +6,6 @@ import {saveGlobally} from './modules/storage';
 import FullDashboard from '../../containers/FullDashboard';
 import WeightDashboard from "../../containers/WeightDashboard";
 import LabResultsDashboard from "../../containers/LabResultsDashboard";
-import useMemberSpace from "../../hooks/memberSpace";
 import VitalsDashboard from "../../containers/VitalsDashboard";
 import ApptReasonsDashboard from "../../containers/ApptReasonsDashboard";
 import RemindersDashboard from "../../containers/RemindersDashboard";
@@ -15,10 +14,11 @@ import SoapNotesDashboard from "../../containers/SoapNotesDashboard";
 import SystemNotesDashboard from "../../containers/SystemNotesDashboard";
 import DiagnosesDashboard from "../../containers/DiagnosesDashboard";
 
-const FULL_DASHBOARD_BUTTON_INDEX_CHILD = 1;
-const PATIENT_DASHBOARD_BUTTON_INDEX_CHILD = 2;
+import {EVETPRACTICE_PRACTICE_REGEX} from "../../constants/settings";
 
-const allowedURLRegexes = [/^http.*evetpractice.com.*/];
+const FULL_DASHBOARD_BUTTON_INDEX_CHILD = 1;
+
+const allowedURLRegexes = [EVETPRACTICE_PRACTICE_REGEX];
 
 console.log('IVEE Content script works!');
 console.log('Must reload extension for modifications to take effect.');
