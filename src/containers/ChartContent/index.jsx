@@ -1,9 +1,11 @@
 import React, {useEffect, useState} from "react";
-import {Fade, Grid, Paper, Popper, ClickAwayListener} from "@material-ui/core";
+import {Fade, Grid, Paper, Popper, ClickAwayListener, MuiThemeProvider} from "@material-ui/core";
 
 import DomIconButton from "../../components/DomIconButton";
 import DomButton from "../../components/DomButton";
 import useMemberSpace from "../../hooks/memberSpace";
+
+import theme from "./theme";
 
 const ChartContent = (props) => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -42,10 +44,10 @@ const ChartContent = (props) => {
     return buttons[props.buttonType]? buttons[props.buttonType]:buttons['iconButton'];
   }
 
-  return <>
+  return <MuiThemeProvider theme={theme}>
     {member && <Dashboard />}
     {member && getButton()}
-  </>;
+  </MuiThemeProvider>;
 }
 
 export default ChartContent;
