@@ -65,8 +65,9 @@ if(mustInsertCodeDom()){
   const patientId = getPatientId();
   console.log("PATIENT ID ",patientId);
   const components = {
-    'title': {
+    'singlement-color': {
       component: <FullDashboard patientId={patientId} />,
+      resultPos: 1
     },
     'patientWeightChart': {
       component: <WeightDashboard patientId={patientId} buttonStyle={{position: 'absolute'}}/>,

@@ -9,10 +9,10 @@ export const insertChild = (referenceNode, newNode) => {
   referenceNode.appendChild(newNode);
 }
 
-export const renderComponent = ({getFunction, identifier, component, extraAction, transformContainer, getElement}) => {
+export const renderComponent = ({getFunction, identifier, component, extraAction, transformContainer, getElement, resultPos = 0}) => {
   // do an extra action before insert it
   if(extraAction) extraAction();
-  const element = getFunction? document[getFunction](identifier):document.getElementsByClassName(identifier)[0];
+  const element = getFunction? document[getFunction](identifier):document.getElementsByClassName(identifier)[resultPos];
   const app = document.createElement('span');
   if(transformContainer) transformContainer(app);
   // if we have to access to another element
